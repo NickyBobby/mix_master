@@ -32,10 +32,15 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
+  gem 'launchy'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
+
+gem 'rails_12factor', group: :production
