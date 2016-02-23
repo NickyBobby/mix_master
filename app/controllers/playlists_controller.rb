@@ -27,6 +27,10 @@ class PlaylistsController < ApplicationController
     redirect_to @playlist
   end
 
+  def destroy
+
+  end
+
 private
 
   def playlist_params

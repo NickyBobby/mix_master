@@ -18,26 +18,33 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    @artist = set_artist
   end
 
   def edit
-    @artist = Artist.find(params[:id])
+    @artist = set_artist
   end
 
   def update
-    @artist = Artist.find(params[:id])
-    @artist.update(artist_params)
-    redirect_to @artist
+    @artist = set_artist
+    if @artist.update(artist_params)
+      redirect_to @artist
+    else
+      redirect_to :edit
+    end
   end
 
   def destroy
-    @artist = Artist.find(params[:id])
+    @artist = set_artist
     @artist.destroy
     redirect_to artists_path
   end
 
 private
+
+  def set_artist
+    @artist = Artist.find(params[:id])
+  end
 
   def artist_params
     params.require(:artist).permit(:name, :image_path)
