@@ -30,7 +30,7 @@ class ArtistsController < ApplicationController
     if @artist.update(artist_params)
       redirect_to @artist
     else
-      redirect_to :edit
+      render :edit
     end
   end
 
